@@ -1,10 +1,18 @@
+//global variables
 let playerScore = 0;
 let computerScore = 0;
-let globalScore = `Player Score: ${playerScore} / Computer Score: ${computerScore}`;
+//let globalScore = `Player Score: ${playerScore} / Computer Score: ${computerScore}`;
+
+function displayGlobalScore() {
+    let globalScore = `Player Score: ${playerScore} / Computer Score: ${computerScore}`;
+    return globalScore
+}
+
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
 
 function getComputerChoice() {
 
@@ -33,11 +41,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// function playerChoice() {
-//     //ask for the player's input
-//     //store input in variable
-//     //return playerchoice
-// }
 
 function playRound(playerChoice, computerChoice) {
     
@@ -48,16 +51,30 @@ function playRound(playerChoice, computerChoice) {
         // console.log(`You lost ${capitalizeFirstLetter(playerChoice)}`);
 
      //compare the player's choice to the computer's choice and determine winner and store the result to variable
+    // let result = "";
+
+    // if (playerChoice === computerChoice) {
+    //     result = `It's a tie, you both chose: ${capitalizeFirstLetter(playerChoice)} \nPlayer Score: ${playerScore} / Computer Score: ${computerScore}`;
+    // } else if ((playerChoice === "rock" && computerChoice === "paper") || (playerChoice === "scissors" && computerChoice === "rock") || (playerChoice === "paper" && computerChoice === "scissors")) {
+    //     computerScore++;
+    //     result = `You lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(playerChoice)}. \nPlayer Score: ${playerScore} / Computer Score: ${computerScore}`;
+    // } else if ((playerChoice === "paper" && computerChoice === "rock") || (playerChoice === "rock" && computerChoice === "scissors") || (playerChoice === "scissors" && computerChoice === "paper")) {
+    //     playerScore++;
+    //     result = `You win! ${capitalizeFirstLetter(playerChoice)} beats ${capitalizeFirstLetter(computerChoice)}. \nPlayer Score: ${playerScore} / Computer Score: ${computerScore}`;
+    // } else {
+    //     result = `Invalid choice. Please choose one of the three options.`
+    // }
+
     let result = "";
 
     if (playerChoice === computerChoice) {
-        result = `It's a tie, you both chose: ${capitalizeFirstLetter(playerChoice)} \nPlayer Score: ${playerScore} / Computer Score: ${computerScore}`;
+        result = `It's a tie, you both chose: ${capitalizeFirstLetter(playerChoice)} \n${displayGlobalScore()}`;
     } else if ((playerChoice === "rock" && computerChoice === "paper") || (playerChoice === "scissors" && computerChoice === "rock") || (playerChoice === "paper" && computerChoice === "scissors")) {
         computerScore++;
-        result = `You lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(playerChoice)}. \nPlayer Score: ${playerScore} / Computer Score: ${computerScore}`;
+        result = `You lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(playerChoice)}. \n${displayGlobalScore()}`;
     } else if ((playerChoice === "paper" && computerChoice === "rock") || (playerChoice === "rock" && computerChoice === "scissors") || (playerChoice === "scissors" && computerChoice === "paper")) {
         playerScore++;
-        result = `You win! ${capitalizeFirstLetter(playerChoice)} beats ${capitalizeFirstLetter(computerChoice)}. \nPlayer Score: ${playerScore} / Computer Score: ${computerScore}`;
+        result = `You win! ${capitalizeFirstLetter(playerChoice)} beats ${capitalizeFirstLetter(computerChoice)}. \n${displayGlobalScore()}`;
     } else {
         result = `Invalid choice. Please choose one of the three options.`
     }
@@ -67,10 +84,14 @@ function playRound(playerChoice, computerChoice) {
 }
 
 
+
+
 //test if rounds work as expected by getting the computer to play against itself
-// const playerSelection = getComputerChoice();
-// const computerSelection = getComputerChoice();
-// console.log(playRound(playerSelection, computerSelection));
+    // const playerSelection = getComputerChoice();
+    // const computerSelection = getComputerChoice();
+    // console.log(playRound(playerSelection, computerSelection));
+
+
 
 
 function game() {
